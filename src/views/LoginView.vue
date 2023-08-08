@@ -8,14 +8,12 @@
           <h1 class="">Let's get rocking</h1>
 
           <div class="mb-4">
-            <label class="block uppercase traking-wide text-xs font-bold mb-2 text-gray-100">First Name</label>
-            <input type="text"
-              class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+            <TextInput label="Email" :labelColor="false" placeholder="example@gmail.com" v-model:input="email" inputType="text" error="this is test error" />
           </div>
 
-          <span class="text-red-500">
-            This is an error message
-          </span>
+          <div class="mb-4">
+            <TextInput label="Password" :labelColor="false" placeholder="" v-model:input="password" inputType="password" error="this is test error" />
+          </div>
 
           <button class="block w-full bg-green-500 text-white rounded-sm py-3 text-smtracking-wide" type="submit">Login</button>
         </div>
@@ -26,3 +24,11 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import TextInput from '@/components/global/TextInput.vue';
+
+let email = ref(null);
+let password = ref(null);
+</script>
