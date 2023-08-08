@@ -7,7 +7,7 @@
         <div class="bg-black p-8 shadow rounded mb-6">
           <h1 class="">Let's get rocking</h1>
 
-          <div class="mb-5">
+          <div class="mb-4">
             <label class="block uppercase traking-wide text-xs font-bold mb-2 text-gray-100">First Name</label>
             <input type="text"
               class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
