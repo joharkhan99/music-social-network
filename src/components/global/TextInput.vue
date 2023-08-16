@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label class="block uppercase traking-wide text-xs font-bold mb-2 text-gray-100" :class="[labelColor ? 'text-gray-900' : 'text-gray-100']">
+    <label class="block uppercase traking-wide text-xs font-bold mb-2" :class="[labelColor ? 'text-gray-900' : 'text-gray-100']">
       {{ label }}
     </label>
 
