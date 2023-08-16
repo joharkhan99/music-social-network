@@ -3,6 +3,8 @@
     <div class="text-gray-900 text-xl">Edit Profile</div>
     <div class="bg-green-500 w-full h-1"></div>
 
+    <CropperModal v-if="showModal" :minAspectRatioProp="{ width: 8, height: 8 }" :maxAspectRatioProp="{ width: 8, height: 8 }" @croppedImageData="setCroppedImageData" @showModal="showModal = false" />
+
     <div class="flex flex-wrap mt-4 mb-6">
       <div class="w-full md:w-1/2 px-3">
         <TextInput label="First Name" :labelColor="true" placeholder="John" v-model:input="firstName" inputType="text" error="this is test error" />
@@ -21,7 +23,13 @@
 
     <div class="flex flex-wrap mt-4 mb-6">
       <div class="w-full md:w-1/2 px-3">
-        <DisplayCropperButton label="Profile Picture" btnText="Update Profile Picture" />
+        <CroppedImage label="Cropped Picture" :image="image" />
+      </div>
+    </div>
+
+    <div class="flex flex-wrap mt-4 mb-6">
+      <div class="w-full md:w-1/2 px-3">
+        <DisplayCropperButton label="Profile Picture" btnText="Update Profile Picture" @showModal="showModal = true" />
       </div>
     </div>
 
@@ -46,9 +54,21 @@ import { ref } from 'vue';
 import DisplayCropperButton from '@/components/global/DisplayCropperButton.vue';
 import TextArea from '@/components/global/TextArea.vue';
 import SubmitFormButton from '@/components/global/SubmitFormButton.vue';
+import CropperModal from '@/components/global/CropperModal.vue';
+import CroppedImage from '@/components/global/CroppedImage.vue';
 
+let showModal = ref(false);
 let firstName = ref(null);
 let lastName = ref(null);
 let location = ref(null);
 let description = ref(null);
+// let imageData = null;
+let image = ref(null);
+
+const setCroppedImageData = (data) => {
+  // imageData = data;
+  image.value = data.imageUrl
+}
+
+
 </script>
