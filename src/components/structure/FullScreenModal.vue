@@ -9,7 +9,10 @@
       <div class="bg-black absolute w-full h-full opacity-75"></div>
       <div class="my-auto fixed border-white w-80 pt-16">
         <p class="text-2xl text-center text-white font-bold mb-4">Menu</p>
-        <RouterLinkButton class="w-full text-gray-900 text-center text-lg" btnText="Profile" color="green" url="/account/profile" />
+
+        <RouterLinkButton @click="open = !open" class="w-full text-gray-900 text-center text-lg" btnText="Profile" color="green" url="/account/profile" />
+
+        <RouterLinkButton @click="open = !open" class="w-full text-gray-900 text-center text-lg mt-4" btnText="Posts" color="green" url="/account/posts" />
 
         <RouterLinkButton class="w-full text-gray-900 text-center text-lg mt-4" btnText="Close" color="red" @click="open = !open" />
       </div>
