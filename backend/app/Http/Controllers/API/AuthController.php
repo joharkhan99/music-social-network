@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\LogoutRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -10,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         try {
             $user = User::create([
@@ -34,7 +37,7 @@ class AuthController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         try {
             $user = User::where('email', $request->input('email'))->firstOrFail();
@@ -59,7 +62,7 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logout(LogoutRequest $request)
     {
         try {
             $user = User::findOrFail($request->input('user_id'));
